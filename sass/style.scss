@@ -44,6 +44,24 @@ body {
   direction: rtl;
 }
 
+.tweet-content {
+  float: right;
+}
+
+.tweet-star {
+  font-size: 50px;
+  color: darkorange;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  outline: none;
+}
+
+.tweet-star:hover:before {
+  content: "\2605";
+  position: absolute;
+}
+
 #footer {
   text-align: center;
   direction: rtl;
