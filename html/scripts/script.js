@@ -40,14 +40,18 @@ app.controller('TweetsCtrl', function($scope, $http) {
 			? _.filter(_allTweets, function(tweet) { return tweet.starred; })
 			: _.filter(_allTweets, function(x) { return(x.category == category); });
 		$scope.currentCategory = category;
-	};
 
+    // Send event to Google Analytics
+    ga('send', 'event', 'category-switch', category);
+	};
+  
 	$scope.star = function(tweet) {
 		// Update starred state in local storage and DOM
 		var currentStarred = JSON.parse(localStorage.getItem(starredKey));
 		currentStarred.push(tweet);
 		tweet.starred = true;
 		localStorage.setItem(starredKey, JSON.stringify(currentStarred));
+		ga('send', 'event', 'tweet-star', tweet);
 	}
 
 	$scope.unstar = function(tweet) {
@@ -57,4 +61,13 @@ app.controller('TweetsCtrl', function($scope, $http) {
 		tweet.starred = false;
 		localStorage.setItem(starredKey, JSON.stringify(currentStarred))
 	}
+
+	function goToCategory(category){
+		// "Starred" category gets special treatment
+		$scope.tweets = category === starredCategoryName
+			? _.filter(_allTweets, function(tweet) { return tweet.starred; })
+			: _.filter(_allTweets, function(x) { return(x.category == category); });
+		$scope.currentCategory = category;
+	}
+
 });
