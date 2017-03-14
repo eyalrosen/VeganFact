@@ -47,7 +47,15 @@
             </ul>
         </div>
         <div class="col-md-9 col-sm-8">
-            <div class="tweet" ng-repeat="tweet in tweets">{{ tweet.content }}</div>
+            <div class="tweet row" ng-repeat="tweet in tweets">
+                <div class="tweet-content col-md-10 col-sm-9">
+                    {{ tweet.content }}
+                </div>
+                <div class="col-md-2 col-sm-3 text-center">
+                    <button class="tweet-star" ng-hide="tweet.starred" ng-click="star(tweet)">☆</button>
+                    <button class="tweet-star" ng-show="tweet.starred" ng-click="unstar(tweet)">★</button>
+                </div>
+            </div>
         </div>
         <div class="col-md-3 col-sm-4 hidden-xs">
             <ul class="list-group">
