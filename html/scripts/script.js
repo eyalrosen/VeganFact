@@ -23,7 +23,9 @@ app.controller('TweetsCtrl', function($scope, $http) {
 		$scope.categories = _.keys(_.groupBy(_allTweets, 'category'));
 		// Add "starred" category in the beginning
 		$scope.categories.unshift(starredCategoryName)
-		$scope.pick($scope.categories[0]);
+
+		// go to first category
+		goToCategory($scope.categories[0]);
 	});
 	
 	// Make sure local storage is stringified json. Set to '[]' if something goes wrong
@@ -36,11 +38,9 @@ app.controller('TweetsCtrl', function($scope, $http) {
 	}
 
 	$scope.pick = function(category) {
-		// "Starred" category gets special treatment
-		$scope.tweets = category === starredCategoryName
-			? _.filter(_allTweets, function(tweet) { return tweet.starred; })
-			: _.filter(_allTweets, function(x) { return(x.category == category); });
-		$scope.currentCategory = category;
+		// Send event to Google Analytics
+		ga('send', 'event', 'category-switch', category);
+		goToCategory(category);
 	}
 
 	$scope.star = function(tweet) {
@@ -49,6 +49,7 @@ app.controller('TweetsCtrl', function($scope, $http) {
 		currentStarred.push(tweet);
 		tweet.starred = true;
 		localStorage.setItem(starredKey, JSON.stringify(currentStarred));
+		ga('send', 'event', 'tweet-star', tweet);
 	}
 
 	$scope.unstar = function(tweet) {
@@ -58,4 +59,13 @@ app.controller('TweetsCtrl', function($scope, $http) {
 		tweet.starred = false;
 		localStorage.setItem(starredKey, JSON.stringify(currentStarred))
 	}
+
+	function goToCategory(category){
+		// "Starred" category gets special treatment
+		$scope.tweets = category === starredCategoryName
+			? _.filter(_allTweets, function(tweet) { return tweet.starred; })
+			: _.filter(_allTweets, function(x) { return(x.category == category); });
+		$scope.currentCategory = category;
+	}
+
 });
