@@ -8,13 +8,6 @@
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Alef" rel="stylesheet">
-
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-93687045-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-
 </head>
 <body ng-app="veganfact" ng-controller="TweetsCtrl">
 
@@ -52,6 +45,9 @@
             <ul class="list-group">
                 <li class="list-group-item" ng-click="pick(category)" ng-repeat="category in categories" ng-class="{active: category == currentCategory}">{{ category }}</li>
             </ul>
+            <div id="new-fact">
+                <a href="https://docs.google.com/a/madfairy.org/forms/d/e/1FAIpQLSc9oezgvfKewxvTxizV2mCoxAO4-hOrUsyKsfa-nkedR9HarA/viewform" target="_blank">+ הוספת עובדה חדשה</a>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -67,6 +63,13 @@
 <script src="./bower_components/angular/angular.min.js"></script>
 <script src="./bower_components/lodash/dist/lodash.min.js"></script>
 <script src="./scripts/script.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-93687045-1', 'auto');
+    ga('send', 'pageview');
+</script>
 
 </body>
 </html>
