@@ -49,6 +49,7 @@ app.controller('TweetsCtrl', function($scope, $http) {
 		currentStarred.push(tweet);
 		tweet.starred = true;
 		localStorage.setItem(starredKey, JSON.stringify(currentStarred));
+		ga('send', 'event', 'tweet-star', tweet);
 	}
 
 	$scope.unstar = function(tweet) {
