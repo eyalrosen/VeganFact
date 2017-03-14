@@ -2,7 +2,7 @@ var app = angular.module('veganfact', []);
 
 app.controller('TweetsCtrl', function($scope, $http) {
 
-	var starredCategoryName = 'אהובים';
+	var starredCategoryName = 'סימנתי בכוכב';
 	var starredKey = 'starred';
 
 	var _allTweets = [];
@@ -18,12 +18,11 @@ app.controller('TweetsCtrl', function($scope, $http) {
 					tweet.starred = true
 				}
 			})
-		})
+		});
 
 		$scope.categories = _.keys(_.groupBy(_allTweets, 'category'));
 		// Add "starred" category in the beginning
 		$scope.categories.unshift(starredCategoryName)
-		$scope.pick($scope.categories[0]);
 	});
 	
 	// Make sure local storage is stringified json. Set to '[]' if something goes wrong
@@ -41,7 +40,7 @@ app.controller('TweetsCtrl', function($scope, $http) {
 			? _.filter(_allTweets, function(tweet) { return tweet.starred; })
 			: _.filter(_allTweets, function(x) { return(x.category == category); });
 		$scope.currentCategory = category;
-	}
+	};
 
 	$scope.star = function(tweet) {
 		// Update starred state in local storage and DOM
