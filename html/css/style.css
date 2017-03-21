@@ -30,22 +30,26 @@ body {
     background: #f3f3f3; }
 
 /* line 34, ../../sass/style.scss */
+#new-fact {
+  direction: rtl; }
+
+/* line 38, ../../sass/style.scss */
 #content {
   width: 550px; }
 
-/* line 38, ../../sass/style.scss */
+/* line 42, ../../sass/style.scss */
 #welcome, #not-starred {
   text-align: center;
   font-size: 23px;
   direction: rtl; }
-  /* line 43, ../../sass/style.scss */
+  /* line 47, ../../sass/style.scss */
   #welcome b, #not-starred b {
     color: green; }
-  /* line 47, ../../sass/style.scss */
+  /* line 51, ../../sass/style.scss */
   #welcome .star, #not-starred .star {
     color: orange; }
 
-/* line 52, ../../sass/style.scss */
+/* line 56, ../../sass/style.scss */
 .tweet {
   border: 1px solid #c5c5c5;
   font-size: 22px;
@@ -54,11 +58,11 @@ body {
   text-align: right;
   direction: rtl; }
 
-/* line 61, ../../sass/style.scss */
+/* line 65, ../../sass/style.scss */
 .tweet-content {
   float: right; }
 
-/* line 65, ../../sass/style.scss */
+/* line 69, ../../sass/style.scss */
 .tweet-star {
   font-size: 50px;
   color: darkorange;
@@ -67,17 +71,17 @@ body {
   padding: 0;
   outline: none; }
 
-/* line 74, ../../sass/style.scss */
+/* line 78, ../../sass/style.scss */
 .tweet-star:hover:before {
   content: "\2605";
   position: absolute; }
 
-/* line 79, ../../sass/style.scss */
+/* line 83, ../../sass/style.scss */
 #footer {
   text-align: center;
   direction: rtl;
   margin-top: 50px; }
-  /* line 84, ../../sass/style.scss */
+  /* line 88, ../../sass/style.scss */
   #footer #vegantech-logo {
     height: 33px;
     position: relative;
