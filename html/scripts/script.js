@@ -2,7 +2,7 @@ var app = angular.module('veganfact', []);
 
 app.controller('TweetsCtrl', function($scope, $http) {
 
-	var starredCategoryName = 'סימנתי בכוכב';
+	var starredCategoryName = '★ סימנתי בכוכב';
 	var starredKey = 'starred';
 
 	var _allTweets = [];
@@ -69,5 +69,15 @@ app.controller('TweetsCtrl', function($scope, $http) {
 			: _.filter(_allTweets, function(x) { return(x.category == category); });
 		$scope.currentCategory = category;
 	}
+
+	$scope.newTweet = function() {
+        ga('send', 'event', 'new-tweet-link');
+        window.open('https://docs.google.com/a/madfairy.org/forms/d/e/1FAIpQLSc9oezgvfKewxvTxizV2mCoxAO4-hOrUsyKsfa-nkedR9HarA/viewform');
+	};
+
+	$scope.openVeganTech = function() {
+        ga('send', 'event', 'open-vegan-tech');
+        window.open('http://www.vegantech.co.il');
+	};
 
 });
